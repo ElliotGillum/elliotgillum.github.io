@@ -3,7 +3,6 @@
 
 let pic_button = document.querySelector("#pic");
 let user_button = document.querySelector("#user");
-let root = window.location.href;
 let heading = document.querySelector("h1");
 
 function setName() {
@@ -21,19 +20,24 @@ function setName() {
 }
 
 function changePic() {
-    let image = document.querySelector("img");
+    let image = document.querySelector("#background");
+    let root = window.location.href;
 
-    if (image.src === "/images/binary-code.png") {
+    if (image.src === (root + "images/binary-code.png")) {
         image.src = "/images/coding.png";
+        image.alt = "coding";
     }
     else {
         image.src = "/images/binary-code.png";
+        image.alt = "binary-code"
     }
 }
 
+user_button.addEventListener("click", setName);
+
+pic_button.addEventListener("click", changePic)
+
 window.addEventListener("load", () => {
-    user_button.addEventListener("click", setName);
-    pic_button.addEventListener("click", changePic)
 
     let stored_name = localStorage.getItem("name");
 
