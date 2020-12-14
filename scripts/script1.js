@@ -23,11 +23,11 @@ function setName() {
 function changePic() {
     let image = document.querySelector("img");
 
-    if (image.src === (root + "/images/binary-code.png")) {
-        image.src = (root + "/images/coding.png");
+    if (image.src === "/images/binary-code.png") {
+        image.src = "/images/coding.png";
     }
     else {
-        image.src = (root + "/images/binary-code.png");
+        image.src = "/images/binary-code.png";
     }
 }
 
