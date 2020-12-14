@@ -41,9 +41,9 @@ function setName() {
 function changePic() {
 
     let image = document.querySelector("#background");
-    let root = window.location.href;
+    let root = window.location.origin;
 
-    if (image.src === (root + "images/binary-code.png")) {
+    if (image.src === (root + "/images/binary-code.png")) {
         image.src = "/images/coding.png";
         image.alt = "coding";
     }
