@@ -20,20 +20,33 @@ body {
 /************************************************/
 
 
-/*Page Header*/
-/***********************************************/
-.header {
+.banner {
     padding: 1vh 1vw 1vh 1vw;
-    background: rgb(0,0,0);
-    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,48,1) 50%, rgba(7,11,12,1) 100%);
     display: flex;
     font-size: 1.25rem;
 }
 
+/*Page Header*/
+/***********************************************/
+.header {
+    background: rgb(0,0,0);
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(0,0,48,1) 50%, rgba(7,11,12,1) 100%);
+}
+
 .logo {
+    min-width: 200px;
+    min-height: 80px;
     border: 1px solid blue;
     background: rgb(199,202,241);
-    background: linear-gradient(45deg, rgba(199,202,241,1) 10%, rgba(143,144,200,1) 50%, rgba(199,202,241,1) 90%);
+    background: url(../images/icon.png),
+        linear-gradient(45deg, rgba(199,202,241,1) 10%, rgba(143,144,200,1) 50%, rgba(199,202,241,1) 90%);
+}
+
+
+/*Navigation*/
+.links {
+    flex: 1;
+    margin-left: 10px;
 }
 
 nav.links ul {
@@ -41,19 +54,39 @@ nav.links ul {
     position: relative;
     top: 42px;
 }
-    nav.links ul li {
-        border: 1px solid blue;
-        list-style: none;
-        text-align: center;
-        padding: 8px 0px;
-        margin-left: 16px;
-        background: rgb(199,202,241);
-        background: linear-gradient(45deg, rgba(199,202,241,1) 10%, rgba(143,144,200,1) 50%, rgba(199,202,241,1) 90%);
-    }
 
-        nav.links ul li a {
-            padding: 8px 32px;
-        }
+nav.links ul li {
+    border: 1px solid blue;
+    list-style: none;
+    text-align: center;
+    padding: 8px 0px;
+    margin-left: 16px;
+    background: rgb(199,202,241);
+    background: linear-gradient(45deg, rgba(199,202,241,1) 10%, rgba(143,144,200,1) 50%, rgba(199,202,241,1) 90%);
+    flex: 1;
+    max-width: 160px;
+}
+
+nav.links ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 0px 32px;
+}
 
 
+.socials {
+    position: relative;
+    top: 30px;
+    display: flex;
+    margin-left: 60px;
+}
 
+ul.socials li {
+    list-style: none;
+    padding: 8px;
+}
+
+ul.socials li img {
+    max-height: 32px;
+    max-width: 32px;
+}
