@@ -1,5 +1,8 @@
 ﻿'use strict'
 
+/*US GOVT API KEY*/
+const GOVTAPI = 'jeX4SZEmzUZFbvqo1qyhnNFEENI3itYyAXO5oCC1';
+
 function visitInterval() {
     let para = document.createElement('p');
     let main = document.querySelector('footer');
@@ -24,30 +27,21 @@ function visitInterval() {
     main.appendChild(para);
 }
 
-window.addEventListener('load', visitInterval);
+async function loadBackground() {
+    let data = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${GOVTAPI}`)
+        .then((stuff) => {
+            return stuff.json();
+        });
 
-async function getAstros() {
-    let jsonData =
-        await fetch('http://api.open-notify.org/astros.json')
-            .then(response => { return response.json() });
-    let main = document.querySelector('main');
-    let { message, number, people } = jsonData;
+    let { date, explanation, hdurl, media_type, service_version, title, url } = data;
 
-    if (message === 'success') {
-        for (let person of people) {
-            let para = document.createElement('p');
+    let body = document.querySelector('body');
+    let img = document.createElement('img');
+    img.src = url;
 
-            let { craft, name } = person;
-            para.textContent = `${name} is currently on the ${craft}.`;
-            main.appendChild(para);
-        }
-
-    } else {
-        new Error('Unable to get current astronauts.');
-    }
-
-
+    body.style.backgroundImage = `url(${hdurl})`;
+    body.style.backgroundSize = 'contain';
 }
 
-
-getAstros();
+window.addEventListener('load', visitInterval);
+window.addEventListener('load', loadBackground);
